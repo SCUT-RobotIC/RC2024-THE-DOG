@@ -4,7 +4,7 @@
 
 第一步，先实现让机器人指哪里走哪里
 
-![jpg图片1]([.\image\2024-04-10-05-04-46-image.png](https://github.com/SCUT-RobotIC/RC2024-THE-DOG/blob/main/image/2024-04-10-05-04-46-image.png))
+![image](https://github.com/SCUT-RobotIC/RC2024-THE-DOG/blob/main/image/2024-04-10-05-04-46-image.png)
 
 主体部分: 高97.5mmz
 
@@ -20,7 +20,7 @@
   
   x 方向 y 方向 都有约束
   
-  之后能解出这个，![loading-ag-219](.\image\2024-04-17-17-24-42-image.png)
+  之后能解出这个，![image](https://github.com/SCUT-RobotIC/RC2024-THE-DOG/blob/main/image/2024-04-17-17-24-42-image.png)
   
   S 为步长
   
@@ -36,13 +36,13 @@
   
   大概是改成这样：
   
-  ![jgg图片3](.\image\2024-04-29-10-30-43-image.png)
+  ![image](https://github.com/SCUT-RobotIC/RC2024-THE-DOG/blob/main/image/2024-04-29-10-30-43-image.png)
   
   在 3/8处，这样的脉冲能确保每次产生的时候接入你站立的姿态
 
 + 
 
-+ ![jgg图片4](.\image\2024-04-29-10-34-38-image.png)
++  ![image](https://github.com/SCUT-RobotIC/RC2024-THE-DOG/blob/main/image/2024-04-29-10-34-38-image.png)
 
 我们实际扔给贝塞尔曲线计算的脉冲是这样
 
