@@ -4,9 +4,9 @@
 
 第一步，先实现让机器人指哪里走哪里
 
-![jgg图片1](.\image\2024-04-10-05-04-46-image.png)
+![jpg图片1]([.\image\2024-04-10-05-04-46-image.png](https://github.com/SCUT-RobotIC/RC2024-THE-DOG/blob/main/image/2024-04-10-05-04-46-image.png))
 
-主体部分: 高97.5mm
+主体部分: 高97.5mmz
 
 宽 ：350mm
 
