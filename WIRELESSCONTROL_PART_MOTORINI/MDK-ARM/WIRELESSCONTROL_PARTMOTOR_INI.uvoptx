@@ -188,22 +188,17 @@
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>hcan</ItemText>
+          <ItemText>((uint32_t)(0x1UL &lt;&lt; (5U)))</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>((uint32_t)(0x1UL &lt;&lt; (5U)))</ItemText>
+          <ItemText>rcv_buf</ItemText>
         </Ww>
         <Ww>
           <count>8</count>
           <WinNumber>1</WinNumber>
-          <ItemText>USART3_RX_BUF</ItemText>
-        </Ww>
-        <Ww>
-          <count>9</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>rcv_buf</ItemText>
+          <ItemText>CH3</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

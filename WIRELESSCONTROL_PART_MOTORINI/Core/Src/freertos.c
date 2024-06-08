@@ -44,6 +44,7 @@ extern PULSE PULSE_data[4];
 extern int stauts ;
 
 extern float CH3,CH2,CH1;
+extern float CH3_gain, LTH_gain;
 
 int update = 10;
 /* USER CODE END Includes */
@@ -286,10 +287,10 @@ void StartTask04(void *argument)
 //		 }
 		
 		if(SBUS_CH.CH3 >1400){
-      CH3 = 0.01;
+      CH3 = 0.01*CH3_gain;
     }
     else if(SBUS_CH.CH3 <300){
-      CH3 = -0.01;
+      CH3 = -0.01*CH3_gain;
     }
     else{
       CH3 = 0;
@@ -297,14 +298,14 @@ void StartTask04(void *argument)
 		
 		if(SBUS_CH.CH2 > 1100){
       
-			rtU.L_LENGTH = 120;
-			rtU.R_LENGTH = 120;
+			rtU.L_LENGTH = 120*LTH_gain;
+			rtU.R_LENGTH = 120*LTH_gain;
     
 		}
     else if(SBUS_CH.CH2 < 800){
 			
-			rtU.L_LENGTH = -120;
-			rtU.R_LENGTH = -120;
+			rtU.L_LENGTH = -120*LTH_gain;
+			rtU.R_LENGTH = -120*LTH_gain;
     }
  
 		
@@ -322,6 +323,34 @@ void StartTask04(void *argument)
 			rtU.L_LENGTH = 0;
 			rtU.R_LENGTH = 0;
 		}	
+		
+		if(200==SBUS_CH.CH5){
+			rtU.HIGHT = 20;
+			rtU.HIGHTB = 20;
+		}else if(1000==SBUS_CH.CH5){
+			rtU.HIGHT = 40;
+			rtU.HIGHTB = 40;
+		}else if(1800==SBUS_CH.CH5){
+			rtU.HIGHT = 60;
+			rtU.HIGHTB = 60;
+		}else{
+			rtU.HIGHT = 40;
+			rtU.HIGHTB = 40;
+		}
+		
+		if(200==SBUS_CH.CH6){
+			CH3_gain = 1;
+			LTH_gain = 1.5;
+		}else if(1000==SBUS_CH.CH6){
+			CH3_gain = 1.2;
+			LTH_gain = 1.25;
+		}else if(1800==SBUS_CH.CH6){
+			CH3_gain = 1.4;
+			LTH_gain = 0.833;
+		}else{
+			CH3_gain = 1;
+			LTH_gain = 1;
+		}
 		
 		PULSE_UPDATE(CH3);
     osDelay(1);

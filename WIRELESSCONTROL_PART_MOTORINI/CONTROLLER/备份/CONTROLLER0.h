@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'CONTROLLER0'.
  *
- * Model version                  : 1.30
+ * Model version                  : 1.29
  * Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
- * C/C++ source code generated on : Sat Jun  8 17:13:38 2024
+ * C/C++ source code generated on : Sat May 11 20:42:14 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -51,8 +51,6 @@ typedef struct {
   float LB_Y;                          /* '<Root>/LB_Y' */
   float R_LENGTH;                      /* '<Root>/R_LENGTH' */
   float L_LENGTH;                      /* '<Root>/L_LENGTH' */
-  float HIGHT;                         /* '<Root>/HIGHT' */
-  float HIGHTB;                        /* '<Root>/HIGHTB' */
 } ExtU;
 
 /* External outputs (root outports fed by signals with default storage) */
@@ -88,8 +86,8 @@ extern RT_MODEL *const rtM;
 /*-
  * These blocks were eliminated from the model due to optimizations:
  *
- * Block '<S2>/步长2' : Unused code path elimination
- * Block '<S3>/步长2' : Unused code path elimination
+ * Block '<S2>/&#x6B65;&#x957F;2' : Unused code path elimination
+ * Block '<S3>/&#x6B65;&#x957F;2' : Unused code path elimination
  */
 
 /*-

@@ -53,6 +53,14 @@
 * 遥控通信 usart3改为uart5 06/07
 * 遥控摇杆阈值更改 06/08
 
+## 遥控控制说明
+* CH3：步频开关，默认±0.01
+* CH2：步长开关，前后移动
+* CH1：步长开关，左右移动
+* CH5：抬腿高度，前中后 -> 20 40 60
+* CH6：步频增益，前中后 -> 1 1.2 1.4；步长增益，前中后 -> 1.5 1.25 0.833
+![遥控器](./image/遥控器.jpg)
+
 ## 文件说明
 * DOG/COMPLETETEST_InDividualLegControl: MATLAB仿真
 * DOG/CONTROLLER：主控simulink模型文件

@@ -38,6 +38,7 @@ extern uint8_t motor_state;
 extern PULSE PULSE_data[4];
 
 float CH3,CH1,CH2;
+float CH3_gain = 1, LTH_gain = 1;
 
 #include "CONTROLLER0.h"
 

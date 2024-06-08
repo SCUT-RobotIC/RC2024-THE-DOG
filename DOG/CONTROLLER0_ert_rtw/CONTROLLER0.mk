@@ -2,7 +2,7 @@
 ## Makefile generated for component 'CONTROLLER0'. 
 ## 
 ## Makefile     : CONTROLLER0.mk
-## Generated on : Thu May 02 02:41:10 2024
+## Generated on : Sat Jun 08 17:13:58 2024
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/CONTROLLER0.exe
 ## Product type : executable
 ## 
@@ -20,10 +20,10 @@
 
 PRODUCT_NAME              = CONTROLLER0
 MAKEFILE                  = CONTROLLER0.mk
-MATLAB_ROOT               = F:/Matlab
-MATLAB_BIN                = F:/Matlab/bin
+MATLAB_ROOT               = D:/MATLAB
+MATLAB_BIN                = D:/MATLAB/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = F:/THE_LIBRARY/CODE_BASE/ROBOSERVO/Odrive/TINDALOS_THEDOG/SIM_MATLAB/DOG
+START_DIR                 = E:/RobotIC/DOG/RC2024-THE-DOG/DOG
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0

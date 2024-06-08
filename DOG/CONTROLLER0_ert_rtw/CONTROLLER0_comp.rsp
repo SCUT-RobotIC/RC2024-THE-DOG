@@ -1,7 +1,7 @@
--IF:/THE_LIBRARY/CODE_BASE/ROBOSERVO/Odrive/TINDALOS_THEDOG/SIM_MATLAB/DOG
--IF:/THE_LIBRARY/CODE_BASE/ROBOSERVO/Odrive/TINDALOS_THEDOG/SIM_MATLAB/DOG/CONTROLLER0_ert_rtw
--IF:/Matlab/extern/include
--IF:/Matlab/simulink/include
--IF:/Matlab/rtw/c/src
--IF:/Matlab/rtw/c/src/ext_mode/common
--IF:/Matlab/rtw/c/ert
+-IE:/RobotIC/DOG/RC2024-THE-DOG/DOG
+-IE:/RobotIC/DOG/RC2024-THE-DOG/DOG/CONTROLLER0_ert_rtw
+-ID:/MATLAB/extern/include
+-ID:/MATLAB/simulink/include
+-ID:/MATLAB/rtw/c/src
+-ID:/MATLAB/rtw/c/src/ext_mode/common
+-ID:/MATLAB/rtw/c/ert

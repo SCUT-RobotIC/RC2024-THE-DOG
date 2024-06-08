@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'CONTROLLER0'.
  *
- * Model version                  : 1.29
+ * Model version                  : 1.30
  * Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
- * C/C++ source code generated on : Sat May 11 20:42:14 2024
+ * C/C++ source code generated on : Sat Jun  8 17:13:38 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -32,7 +32,7 @@ ExtY rtY;
 static RT_MODEL rtM_;
 RT_MODEL *const rtM = &rtM_;
 static void uTm_x1(float rtu_u, double rtu_Tm, float rtu_S, float *rty_x);
-static void uTm_y2(float rtu_u, double rtu_Tm, double rtu_H, float *rty_y);
+static void uTm_y2(float rtu_u, double rtu_Tm, float rtu_H, float *rty_y);
 static void MATLABFunction1(float rtu_x1, double rtu_z1, float *rty_theta_OUT,
   float *rty_theta_IN);
 
@@ -60,16 +60,16 @@ static void uTm_x1(float rtu_u, double rtu_Tm, float rtu_S, float *rty_x)
  *    '<S3>/0-Tm_y2'
  *    '<S4>/0-Tm_y2'
  */
-static void uTm_y2(float rtu_u, double rtu_Tm, double rtu_H, float *rty_y)
+static void uTm_y2(float rtu_u, double rtu_Tm, float rtu_H, float *rty_y)
 {
   if (rtu_u > 0.0F) {
     float tmp;
     float tmp_0;
     tmp = sinf(12.566371F * rtu_u / (float)rtu_Tm) * 0.0795774683F;
     tmp_0 = rtu_u / (float)rtu_Tm;
-    *rty_y = ((1.0F - tmp_0) + tmp) * (float)(2.0 * rtu_H) * (float)((rtu_u >=
-      rtu_Tm / 2.0) && (rtu_u < rtu_Tm)) + (tmp_0 - tmp) * (float)(2.0 * rtu_H) *
-      (float)(rtu_u < rtu_Tm / 2.0);
+    *rty_y = ((1.0F - tmp_0) + tmp) * (2.0F * rtu_H) * (float)((rtu_u >= rtu_Tm /
+      2.0) && (rtu_u < rtu_Tm)) + (tmp_0 - tmp) * (2.0F * rtu_H) * (float)(rtu_u
+      < rtu_Tm / 2.0);
   } else {
     *rty_y = 0.0F;
   }
@@ -97,28 +97,27 @@ static void MATLABFunction1(float rtu_x1, double rtu_z1, float *rty_theta_OUT,
 /* Model step function */
 void CONTROLLER0_step(void)
 {
-  double rtb_Sum_i;
   float rtb_theta_IN;
   float rtb_theta_OUT;
   float rtb_y;
 
   /* MATLAB Function: '<S5>/0-Tm_x1' incorporates:
-   *  Constant: '<S5>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
+   *  Constant: '<S5>/摆动相周期2'
    *  Inport: '<Root>/RF_X'
    *  Inport: '<Root>/R_LENGTH'
    */
   uTm_x1(rtU.RF_X, 2.0, rtU.R_LENGTH, &rtb_theta_OUT);
 
   /* MATLAB Function: '<S5>/0-Tm_y2' incorporates:
-   *  Constant: '<S5>/&#x62AC;&#x817F;&#x9AD8;&#x5EA6;2'
-   *  Constant: '<S5>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
+   *  Constant: '<S5>/摆动相周期2'
+   *  Inport: '<Root>/HIGHT'
    *  Inport: '<Root>/RF_Y'
    */
   if (rtU.RF_Y > 0.0F) {
     rtb_y = sinf(12.566371F * rtU.RF_Y / 2.0F) * 0.0795774683F;
-    rtb_y = ((1.0F - rtU.RF_Y / 2.0F) + rtb_y) * 80.0F * (float)((rtU.RF_Y >=
-      1.0F) && (rtU.RF_Y < 2.0F)) + (rtU.RF_Y / 2.0F - rtb_y) * 80.0F * (float)
-      ((rtU.RF_Y >= 0.0F) && (rtU.RF_Y < 1.0F));
+    rtb_y = ((1.0F - rtU.RF_Y / 2.0F) + rtb_y) * (2.0F * rtU.HIGHT) * (float)
+      ((rtU.RF_Y >= 1.0F) && (rtU.RF_Y < 2.0F)) + (rtU.RF_Y / 2.0F - rtb_y) *
+      (2.0F * rtU.HIGHT) * (float)((rtU.RF_Y >= 0.0F) && (rtU.RF_Y < 1.0F));
   } else {
     rtb_y = 0.0F;
   }
@@ -145,71 +144,31 @@ void CONTROLLER0_step(void)
    */
   rtY.RF_theta_in = 0.0174532924F * rtb_theta_OUT;
 
-  /* MATLAB Function: '<S4>/0-Tm_y2' incorporates:
-   *  Constant: '<S4>/&#x62AC;&#x817F;&#x9AD8;&#x5EA6;2'
-   *  Constant: '<S4>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
-   *  Inport: '<Root>/RB_Y'
-   */
-  uTm_y2(rtU.RB_Y, 2.0, 40.0, &rtb_theta_OUT);
-
-  /* Sum: '<S4>/Sum' incorporates:
-   *  Constant: '<S4>/Constant3'
-   */
-  rtb_Sum_i = rtb_theta_OUT - 200.0;
-
-  /* MATLAB Function: '<S4>/0-Tm_x1' incorporates:
-   *  Constant: '<S4>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
-   *  Inport: '<Root>/RB_X'
-   *  Inport: '<Root>/R_LENGTH'
-   */
-  uTm_x1(rtU.RB_X, 2.0, rtU.R_LENGTH, &rtb_theta_OUT);
-
-  /* MATLAB Function: '<S4>/MATLAB Function1' incorporates:
-   *  Gain: '<S4>/Gain4'
-   *  Inport: '<Root>/R_LENGTH'
-   *  Sum: '<S4>/Sum1'
-   */
-  MATLABFunction1(rtb_theta_OUT - 0.5F * rtU.R_LENGTH, rtb_Sum_i, &rtb_theta_OUT,
-                  &rtb_theta_IN);
-
-  /* Outport: '<Root>/RB_theta_out' incorporates:
-   *  Gain: '<S19>/Gain1'
-   *  Gain: '<S4>/Gain1'
-   */
-  rtY.RB_theta_out = 0.0174532924F * -rtb_theta_OUT;
-
-  /* Outport: '<Root>/RB_theta_in' incorporates:
-   *  Gain: '<S18>/Gain1'
-   *  Gain: '<S4>/Gain'
-   */
-  rtY.RB_theta_in = 0.0174532924F * -rtb_theta_IN;
-
-  /* MATLAB Function: '<S2>/0-Tm_y2' incorporates:
-   *  Constant: '<S2>/&#x62AC;&#x817F;&#x9AD8;&#x5EA6;2'
-   *  Constant: '<S2>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
-   *  Inport: '<Root>/LB_Y'
-   */
-  uTm_y2(rtU.LB_Y, 2.0, 40.0, &rtb_theta_OUT);
-
-  /* Sum: '<S2>/Sum' incorporates:
-   *  Constant: '<S2>/Constant3'
-   */
-  rtb_Sum_i = rtb_theta_OUT - 200.0;
-
   /* MATLAB Function: '<S2>/0-Tm_x1' incorporates:
-   *  Constant: '<S2>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
+   *  Constant: '<S2>/摆动相周期2'
    *  Inport: '<Root>/LB_X'
    *  Inport: '<Root>/L_LENGTH'
    */
   uTm_x1(rtU.LB_X, 2.0, rtU.L_LENGTH, &rtb_theta_OUT);
 
-  /* MATLAB Function: '<S2>/MATLAB Function1' incorporates:
+  /* Sum: '<S2>/Sum1' incorporates:
    *  Gain: '<S2>/Gain4'
    *  Inport: '<Root>/L_LENGTH'
-   *  Sum: '<S2>/Sum1'
    */
-  MATLABFunction1(rtb_theta_OUT - 0.5F * rtU.L_LENGTH, rtb_Sum_i, &rtb_theta_OUT,
-                  &rtb_theta_IN);
+  rtb_y = rtb_theta_OUT - 0.5F * rtU.L_LENGTH;
+
+  /* MATLAB Function: '<S2>/0-Tm_y2' incorporates:
+   *  Constant: '<S2>/摆动相周期2'
+   *  Inport: '<Root>/HIGHTB'
+   *  Inport: '<Root>/LB_Y'
+   */
+  uTm_y2(rtU.LB_Y, 2.0, rtU.HIGHTB, &rtb_theta_OUT);
+
+  /* MATLAB Function: '<S2>/MATLAB Function1' incorporates:
+   *  Constant: '<S2>/Constant3'
+   *  Sum: '<S2>/Sum'
+   */
+  MATLABFunction1(rtb_y, rtb_theta_OUT - 200.0, &rtb_theta_OUT, &rtb_theta_IN);
 
   /* Outport: '<Root>/LB_theta_out' incorporates:
    *  Gain: '<S9>/Gain1'
@@ -221,32 +180,31 @@ void CONTROLLER0_step(void)
    */
   rtY.LB_theta_in = 0.0174532924F * rtb_theta_IN;
 
-  /* MATLAB Function: '<S3>/0-Tm_y2' incorporates:
-   *  Constant: '<S3>/&#x62AC;&#x817F;&#x9AD8;&#x5EA6;2'
-   *  Constant: '<S3>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
-   *  Inport: '<Root>/LF_Y'
-   */
-  uTm_y2(rtU.LF_Y, 2.0, 40.0, &rtb_theta_OUT);
-
-  /* Sum: '<S3>/Sum' incorporates:
-   *  Constant: '<S3>/Constant3'
-   */
-  rtb_Sum_i = rtb_theta_OUT - 200.0;
-
   /* MATLAB Function: '<S3>/0-Tm_x1' incorporates:
-   *  Constant: '<S3>/&#x6446;&#x52A8;&#x76F8;&#x5468;&#x671F;2'
+   *  Constant: '<S3>/摆动相周期2'
    *  Inport: '<Root>/LF_X'
    *  Inport: '<Root>/L_LENGTH'
    */
   uTm_x1(rtU.LF_X, 2.0, rtU.L_LENGTH, &rtb_theta_OUT);
 
-  /* MATLAB Function: '<S3>/MATLAB Function1' incorporates:
+  /* Sum: '<S3>/Sum1' incorporates:
    *  Gain: '<S3>/Gain4'
    *  Inport: '<Root>/L_LENGTH'
-   *  Sum: '<S3>/Sum1'
    */
-  MATLABFunction1(rtb_theta_OUT - 0.5F * rtU.L_LENGTH, rtb_Sum_i, &rtb_theta_OUT,
-                  &rtb_theta_IN);
+  rtb_y = rtb_theta_OUT - 0.5F * rtU.L_LENGTH;
+
+  /* MATLAB Function: '<S3>/0-Tm_y2' incorporates:
+   *  Constant: '<S3>/摆动相周期2'
+   *  Inport: '<Root>/HIGHT'
+   *  Inport: '<Root>/LF_Y'
+   */
+  uTm_y2(rtU.LF_Y, 2.0, rtU.HIGHT, &rtb_theta_OUT);
+
+  /* MATLAB Function: '<S3>/MATLAB Function1' incorporates:
+   *  Constant: '<S3>/Constant3'
+   *  Sum: '<S3>/Sum'
+   */
+  MATLABFunction1(rtb_y, rtb_theta_OUT - 200.0, &rtb_theta_OUT, &rtb_theta_IN);
 
   /* Outport: '<Root>/LF_theta_out' incorporates:
    *  Gain: '<S14>/Gain1'
@@ -259,6 +217,44 @@ void CONTROLLER0_step(void)
    *  Gain: '<S3>/Gain1'
    */
   rtY.LF_theta_in = 0.0174532924F * -rtb_theta_OUT;
+
+  /* MATLAB Function: '<S4>/0-Tm_x1' incorporates:
+   *  Constant: '<S4>/摆动相周期2'
+   *  Inport: '<Root>/RB_X'
+   *  Inport: '<Root>/R_LENGTH'
+   */
+  uTm_x1(rtU.RB_X, 2.0, rtU.R_LENGTH, &rtb_theta_OUT);
+
+  /* Sum: '<S4>/Sum1' incorporates:
+   *  Gain: '<S4>/Gain4'
+   *  Inport: '<Root>/R_LENGTH'
+   */
+  rtb_y = rtb_theta_OUT - 0.5F * rtU.R_LENGTH;
+
+  /* MATLAB Function: '<S4>/0-Tm_y2' incorporates:
+   *  Constant: '<S4>/摆动相周期2'
+   *  Inport: '<Root>/HIGHTB'
+   *  Inport: '<Root>/RB_Y'
+   */
+  uTm_y2(rtU.RB_Y, 2.0, rtU.HIGHTB, &rtb_theta_OUT);
+
+  /* MATLAB Function: '<S4>/MATLAB Function1' incorporates:
+   *  Constant: '<S4>/Constant3'
+   *  Sum: '<S4>/Sum'
+   */
+  MATLABFunction1(rtb_y, rtb_theta_OUT - 200.0, &rtb_theta_OUT, &rtb_theta_IN);
+
+  /* Outport: '<Root>/RB_theta_out' incorporates:
+   *  Gain: '<S19>/Gain1'
+   *  Gain: '<S4>/Gain1'
+   */
+  rtY.RB_theta_out = 0.0174532924F * -rtb_theta_OUT;
+
+  /* Outport: '<Root>/RB_theta_in' incorporates:
+   *  Gain: '<S18>/Gain1'
+   *  Gain: '<S4>/Gain'
+   */
+  rtY.RB_theta_in = 0.0174532924F * -rtb_theta_IN;
 }
 
 /* Model initialize function */
