@@ -1,0 +1,75 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Poria BC, RB, LIC=D0D7S-LXE8I-VE1HA-1PZCD-1JVCM-7E69T
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  D:\MDK5.36\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.33.0.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+E:\RobotIC\DOG_BRANCH\WIRELESSCONTROL_PART_MOTORINI\MDK-ARM\WIRELESSCONTROL_PARTMOTOR_INI.uvprojx
+Project File Date:  06/07/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\MDK5.36\ARM\ARMCC\Bin'
+Build target 'WIRELESSCONTROL_PARTMOTOR_INI'
+compiling stm32f4xx_it.c...
+compiling main.c...
+../SBUS/sbus.h(61): warning:  #1-D: last line of file ends without a newline
+  #endif
+../HT03/HT03.h(49): warning:  #1295-D: Deprecated declaration can_filter_init - give arg types
+  void can_filter_init();
+../HT03/HT03.h(54): warning:  #1295-D: Deprecated declaration CanMOTOR_Init - give arg types
+  void CanMOTOR_Init();
+../HT03/HT03.h(55): warning:  #1295-D: Deprecated declaration CanMotorUpdate_NULL - give arg types
+  void CanMotorUpdate_NULL();
+../HT03/HT03.h(60): warning:  #1-D: last line of file ends without a newline
+  #endif
+../IMPULSE/IMPULSE.h(39): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Core/Src/main.c: 6 warnings, 0 errors
+linking...
+Program Size: Code=34548 RO-data=684 RW-data=224 ZI-data=21664  
+FromELF: creating hex file...
+"WIRELESSCONTROL_PARTMOTOR_INI\WIRELESSCONTROL_PARTMOTOR_INI.axf" - 0 Error(s), 6 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil.STM32F4xx_DFP.2.17.1
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_WIRELESSCONTROL_PARTMOTOR_INI
+  D:\MDK5.36\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  D:\MDK5.36\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+      Include file:  CMSIS\Core\Include\tz_context.h
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

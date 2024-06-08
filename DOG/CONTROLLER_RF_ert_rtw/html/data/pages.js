@@ -1,0 +1,1 @@
+var reportPages = [["摘要","CONTROLLER_RF_survey.html"],["子系统报告","CONTROLLER_RF_subsystems.html"],["代码接口报告","CONTROLLER_RF_interface.html"],["可追溯性报告","CONTROLLER_RF_trace.html"],["静态代码度量报告","CONTROLLER_RF_metrics.html"],["代码替换报告","CONTROLLER_RF_replacements.html"],["代码生成器假设","CONTROLLER_RF_coderassumptions.html"]];

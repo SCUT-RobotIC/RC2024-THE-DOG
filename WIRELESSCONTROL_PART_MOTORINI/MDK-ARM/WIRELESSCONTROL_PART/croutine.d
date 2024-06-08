@@ -1,0 +1,14 @@
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+wirelesscontrol_part\croutine.o: F:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+wirelesscontrol_part\croutine.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+wirelesscontrol_part\croutine.o: ../Core/Inc/FreeRTOSConfig.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+wirelesscontrol_part\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

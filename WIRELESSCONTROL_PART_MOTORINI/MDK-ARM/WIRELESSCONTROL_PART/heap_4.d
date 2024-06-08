@@ -1,0 +1,13 @@
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
+wirelesscontrol_part\heap_4.o: F:\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+wirelesscontrol_part\heap_4.o: F:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+wirelesscontrol_part\heap_4.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+wirelesscontrol_part\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+wirelesscontrol_part\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
