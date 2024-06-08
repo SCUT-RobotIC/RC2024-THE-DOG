@@ -59,7 +59,7 @@
 * CH1：步长开关，左右移动
 * CH5：抬腿高度，前中后 -> 20 40 60
 * CH6：步频增益，前中后 -> 1 1.2 1.4；步长增益，前中后 -> 1.5 1.25 0.833
-![遥控器](./image/遥控器.jpg)
+![遥控器](https://github.com/SCUT-RobotIC/RC2024-THE-DOG/blob/main/image/%E9%81%A5%E6%8E%A7%E5%99%A8.jpg)
 
 ## 文件说明
 * DOG/COMPLETETEST_InDividualLegControl: MATLAB仿真
