@@ -286,72 +286,77 @@ void StartTask04(void *argument)
 //			 CH3 = -0.01;
 //		 }
 		
-		if(SBUS_CH.CH3 >1400){
-      CH3 = 0.01*CH3_gain;
-    }
-    else if(SBUS_CH.CH3 <300){
-      CH3 = -0.01*CH3_gain;
-    }
-    else{
-      CH3 = 0;
-    }
-		
-		if(SBUS_CH.CH2 > 1100){
-      
-			rtU.L_LENGTH = 120*LTH_gain;
-			rtU.R_LENGTH = 120*LTH_gain;
-    
-		}
-    else if(SBUS_CH.CH2 < 800){
-			
-			rtU.L_LENGTH = -120*LTH_gain;
-			rtU.R_LENGTH = -120*LTH_gain;
-    }
- 
-		
-		if(SBUS_CH.CH1 > 1000){
-      rtU.L_LENGTH = 120;
-			rtU.R_LENGTH = -120;
-    }
-    else if(SBUS_CH.CH1 <700){
-      rtU.L_LENGTH = -120;
-			rtU.R_LENGTH = 120;
-    }
-  
-		if(SBUS_CH.CH1> 700  &&  SBUS_CH.CH1 < 1000 && SBUS_CH.CH2 > 800 &&SBUS_CH.CH2 <1100)
-		{
-			rtU.L_LENGTH = 0;
-			rtU.R_LENGTH = 0;
-		}	
+//		if(SBUS_CH.CH3 >1400){
+//      CH3 = 0.01*CH3_gain;
+//    }
+//    else if(SBUS_CH.CH3 <300){
+//      CH3 = -0.01*CH3_gain;
+//    }
+//    else{
+//      CH3 = 0;
+//    }
 		
 		if(200==SBUS_CH.CH5){
-			rtU.HIGHT = 20;
-			rtU.HIGHTB = 20;
+			rtU.RF_HIGHT = 20;
+			rtU.RB_HIGHT = 20;
+			rtU.LF_HIGHT = 20;
+			rtU.LB_HIGHT = 20;
 		}else if(1000==SBUS_CH.CH5){
-			rtU.HIGHT = 40;
-			rtU.HIGHTB = 40;
+			rtU.RF_HIGHT = 30;
+			rtU.RB_HIGHT = 30;
+			rtU.LF_HIGHT = 30;
+			rtU.LB_HIGHT = 30;
 		}else if(1800==SBUS_CH.CH5){
-			rtU.HIGHT = 60;
-			rtU.HIGHTB = 60;
+			rtU.RF_HIGHT = 60;
+			rtU.RB_HIGHT = 60;
+			rtU.LF_HIGHT = 60;
+			rtU.LB_HIGHT = 60;
 		}else{
-			rtU.HIGHT = 40;
-			rtU.HIGHTB = 40;
+			rtU.RF_HIGHT = 20;
+			rtU.RB_HIGHT = 20;
+			rtU.LF_HIGHT = 20;
+			rtU.LB_HIGHT = 20;
 		}
 		
 		if(200==SBUS_CH.CH6){
-			CH3_gain = 1;
-			LTH_gain = 1.5;
+			CH3_gain = 0;
 		}else if(1000==SBUS_CH.CH6){
-			CH3_gain = 1.2;
-			LTH_gain = 1.25;
+			CH3_gain = 1;
 		}else if(1800==SBUS_CH.CH6){
-			CH3_gain = 1.4;
-			LTH_gain = 0.833;
+			CH3_gain = 1.6;
 		}else{
 			CH3_gain = 1;
-			LTH_gain = 1;
 		}
 		
+		LTH_gain = 1 + (SBUS_CH.CH3 / 100)*0.1;
+		
+		if(SBUS_CH.CH2 > 1100){
+			rtU.L_LENGTH = 100*LTH_gain;
+			rtU.R_LENGTH = 100*LTH_gain;
+		}
+    else if(SBUS_CH.CH2 < 800){
+			rtU.L_LENGTH = -100*LTH_gain;
+			rtU.R_LENGTH = -100*LTH_gain;
+    }
+
+		if(SBUS_CH.CH1 > 1000){
+			CH3_gain = 1.4;
+      rtU.L_LENGTH = -80*LTH_gain;
+			rtU.R_LENGTH = 80*LTH_gain;
+    }
+    else if(SBUS_CH.CH1 < 700){
+			CH3_gain = 1.4;
+      rtU.L_LENGTH = 80*LTH_gain;
+			rtU.R_LENGTH = -80*LTH_gain;
+    }
+  
+		if(SBUS_CH.CH1> 700  &&  SBUS_CH.CH1 < 1000 && SBUS_CH.CH2 > 800 &&SBUS_CH.CH2 <1100){
+			rtU.L_LENGTH = 0;
+			rtU.R_LENGTH = 0;
+		}
+		
+		CH3 = 0.01 * CH3_gain;
+
 		PULSE_UPDATE(CH3);
     osDelay(1);
   }

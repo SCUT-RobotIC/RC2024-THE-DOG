@@ -9,7 +9,7 @@
  *
  * Model version                  : 1.30
  * Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
- * C/C++ source code generated on : Sat Jun  8 17:13:38 2024
+ * C/C++ source code generated on : Sat Jun  8 22:46:00 2024
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-M
@@ -51,8 +51,10 @@ typedef struct {
   float LB_Y;                          /* '<Root>/LB_Y' */
   float R_LENGTH;                      /* '<Root>/R_LENGTH' */
   float L_LENGTH;                      /* '<Root>/L_LENGTH' */
-  float HIGHT;                         /* '<Root>/HIGHT' */
-  float HIGHTB;                        /* '<Root>/HIGHTB' */
+  float RF_HIGHT;                      /* '<Root>/RF_HIGHT' */
+  float RB_HIGHT;                      /* '<Root>/RB_HIGHT' */
+  float LF_HIGHT;                      /* '<Root>/LF_HIGHT' */
+  float LB_HIGHT;                      /* '<Root>/LB_HIGHT' */
 } ExtU;
 
 /* External outputs (root outports fed by signals with default storage) */
