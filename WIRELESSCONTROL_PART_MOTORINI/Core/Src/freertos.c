@@ -219,7 +219,7 @@ void StartTask02(void *argument)
 			CanComm_SendControlPara(rtY.LF_theta_in,0,7.5,0.2,0,0x08,hcan2);
 			osDelay(1);
 	//		CanComm_ControlCmd(CMD_MOTOR_MODE,0x03,hcan1);
-			 CanComm_SendControlPara(rtY.LF_theta_out,0,7.5,0.2,0,0x03,hcan1);
+			CanComm_SendControlPara(rtY.LF_theta_out,0,7.5,0.2,0,0x03,hcan1);
 			osDelay(1);
 	 }
 	 if( update == 10){
@@ -297,20 +297,20 @@ void StartTask04(void *argument)
 //    }
 		
 		if(200==SBUS_CH.CH5){
-			rtU.RF_HIGHT = 20;
-			rtU.RB_HIGHT = 20;
-			rtU.LF_HIGHT = 20;
-			rtU.LB_HIGHT = 20;
-		}else if(1000==SBUS_CH.CH5){
 			rtU.RF_HIGHT = 30;
 			rtU.RB_HIGHT = 30;
 			rtU.LF_HIGHT = 30;
 			rtU.LB_HIGHT = 30;
+		}else if(1000==SBUS_CH.CH5){
+			rtU.RF_HIGHT = 40;
+			rtU.RB_HIGHT = 40;
+			rtU.LF_HIGHT = 40;
+			rtU.LB_HIGHT = 40;
 		}else if(1800==SBUS_CH.CH5){
-			rtU.RF_HIGHT = 60;
-			rtU.RB_HIGHT = 60;
-			rtU.LF_HIGHT = 60;
-			rtU.LB_HIGHT = 60;
+			rtU.RF_HIGHT = 50;
+			rtU.RB_HIGHT = 50;
+			rtU.LF_HIGHT = 50;
+			rtU.LB_HIGHT = 50;
 		}else{
 			rtU.RF_HIGHT = 20;
 			rtU.RB_HIGHT = 20;
@@ -321,39 +321,92 @@ void StartTask04(void *argument)
 		if(200==SBUS_CH.CH6){
 			CH3_gain = 0;
 		}else if(1000==SBUS_CH.CH6){
-			CH3_gain = 1;
+			CH3_gain = 1.2;
 		}else if(1800==SBUS_CH.CH6){
-			CH3_gain = 1.6;
+			CH3_gain = 1.4;
 		}else{
 			CH3_gain = 1;
 		}
 		
+		//CH3_gain = 1.2;	
+		
 		LTH_gain = 1 + (SBUS_CH.CH3 / 100)*0.1;
 		
-		if(SBUS_CH.CH2 > 1100){
+		if(SBUS_CH.CH1 >= 1100){
+			CH3_gain = 1.2;
+			rtU.RF_HIGHT = 50;
+			rtU.RB_HIGHT = 50;
+			rtU.LF_HIGHT = 50;
+			rtU.LB_HIGHT = 50;
+//      rtU.L_LENGTH = -120*LTH_gain;
+//			rtU.R_LENGTH = 120*LTH_gain;
+			rtU.L_LENGTH = -100*LTH_gain;
+			rtU.R_LENGTH = 100*LTH_gain;
+    }
+    else if(SBUS_CH.CH1 <= 600){
+			CH3_gain = 1.2;
+			rtU.RF_HIGHT = 50;
+			rtU.RB_HIGHT = 50;
+			rtU.LF_HIGHT = 50;
+			rtU.LB_HIGHT = 50;
+//      rtU.L_LENGTH = 120*LTH_gain;
+//			rtU.R_LENGTH = -120*LTH_gain;
+			rtU.L_LENGTH = 100*LTH_gain;
+			rtU.R_LENGTH = -100*LTH_gain;
+    }
+		else if(SBUS_CH.CH2 >= 1200){
 			rtU.L_LENGTH = 100*LTH_gain;
 			rtU.R_LENGTH = 100*LTH_gain;
 		}
-    else if(SBUS_CH.CH2 < 800){
+    else if(SBUS_CH.CH2 <= 700){
 			rtU.L_LENGTH = -100*LTH_gain;
 			rtU.R_LENGTH = -100*LTH_gain;
     }
 
-		if(SBUS_CH.CH1 > 1000){
-			CH3_gain = 1.4;
-      rtU.L_LENGTH = -80*LTH_gain;
-			rtU.R_LENGTH = 80*LTH_gain;
-    }
-    else if(SBUS_CH.CH1 < 700){
-			CH3_gain = 1.4;
-      rtU.L_LENGTH = 80*LTH_gain;
-			rtU.R_LENGTH = -80*LTH_gain;
-    }
   
-		if(SBUS_CH.CH1> 700  &&  SBUS_CH.CH1 < 1000 && SBUS_CH.CH2 > 800 &&SBUS_CH.CH2 <1100){
+		if(SBUS_CH.CH1> 600  &&  SBUS_CH.CH1 < 1100 && SBUS_CH.CH2 > 700 && SBUS_CH.CH2 <1200){
 			rtU.L_LENGTH = 0;
 			rtU.R_LENGTH = 0;
 		}
+		
+//		if(200==SBUS_CH.CH6){//ÌøÔ¾³¢ÊÔ
+//			PULSE_data[RF].TIME_X = 2;
+//			PULSE_data[RF].TIME_Y = 2;
+//			PULSE_data[RB].TIME_X = 0;
+//			PULSE_data[RB].TIME_Y = 0;
+//			PULSE_data[LF].TIME_X = 0;
+//			PULSE_data[LF].TIME_Y = 0;
+//			PULSE_data[LB].TIME_X = 0;
+//			PULSE_data[LB].TIME_X = 2;
+//			PULSE_data[LB].TIME_Y = 2;
+//		}else if(1000==SBUS_CH.CH6){
+//			CH3_gain = 0;
+//			rtU.RF_HIGHT = 90;
+//			rtU.RB_HIGHT = 90;
+//			rtU.LF_HIGHT = 90;
+//			rtU.LB_HIGHT = 90;
+//			rtU.L_LENGTH = 0;
+//			rtU.R_LENGTH = 0;
+//			PULSE_data[RF].TIME_X = 0;
+//			PULSE_data[RF].TIME_Y = 1;
+//			PULSE_data[RB].TIME_X = 0;
+//			PULSE_data[RB].TIME_Y = 1;
+//			PULSE_data[LF].TIME_X = 0;
+//			PULSE_data[LF].TIME_Y = 1;
+//			PULSE_data[LB].TIME_X = 0;
+//			PULSE_data[LB].TIME_Y = 1;
+//		}else if(1800==SBUS_CH.CH6){
+//			rtU.RF_HIGHT = 0;
+//			rtU.RB_HIGHT = 0;
+//			rtU.LF_HIGHT = 0;
+//			rtU.LB_HIGHT = 0;
+//			PULSE_data[RF].TIME_Y = 2;
+//			PULSE_data[RB].TIME_Y = 2;
+//			PULSE_data[LF].TIME_Y = 2;
+//			PULSE_data[LB].TIME_Y = 2;
+//		}else{
+//			CH3_gain = 0;
+//		}
 		
 		CH3 = 0.01 * CH3_gain;
 

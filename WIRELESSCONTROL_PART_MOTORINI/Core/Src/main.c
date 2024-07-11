@@ -124,6 +124,7 @@ int main(void)
   can_filter_init();
 
 
+	//PULSE_INIT(8,4,2,1,2,2,0,0,0,0,2,2);
 	PULSE_INIT(8,4,2,1,2,2,0,0,0,0,2,2);
 	//void PULSE_INIT(int X_N,int Y_N,int X_MAX, int Y_MAX,float sx_RF, float sy_RF,float sx_RB, 
 	//float sy_RB,float sx_LF, float sy_LF,float sx_LB, float sy_LB);
